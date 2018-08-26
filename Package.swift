@@ -4,6 +4,9 @@ import PackageDescription
 
 let package = Package(
     name: "PMKAlamofire",
+    products: [
+        .library(name: "PMKAlamofire", targets: ["PMKAlamofire"]),
+    ],
     dependencies: [
         .package(url: "https://github.com/mxcl/PromiseKit.git", from: "6.4.0"),
         .package(url: "https://github.com/maksimorlovich/Alamofire.git", .branch("alamofire5-linux")),
