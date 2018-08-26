@@ -14,7 +14,7 @@ import PromiseKit
 
      import PromiseKit
  */
-extension Alamofire.DataRequest {
+extension DataRequest {
     /// Adds a handler to be called once the request has finished.
     public func response(_: PMKNamespacer, queue: DispatchQueue? = nil) -> Promise<(URLRequest, HTTPURLResponse, Data)> {
         return Promise { seal in
@@ -73,7 +73,7 @@ extension Alamofire.DataRequest {
     }
 
     /// Adds a handler to be called once the request has finished.
-    public func responsePropertyList(queue: DispatchQueue? = nil, options: PropertyListSerialization.ReadOptions = PropertyListSerialization.ReadOptions()) -> Promise<(plist: Any, response: PMKAlamofireDataResponse)> {
+    /*public func responsePropertyList(queue: DispatchQueue? = nil, options: PropertyListSerialization.ReadOptions = PropertyListSerialization.ReadOptions()) -> Promise<(plist: Any, response: PMKAlamofireDataResponse)> {
         return Promise { seal in
             responsePropertyList(queue: queue, options: options) { response in
                 switch response.result {
@@ -84,7 +84,7 @@ extension Alamofire.DataRequest {
                 }
             }
         }
-    }
+    }*/
 
 #if swift(>=3.2)
     /**
@@ -137,7 +137,8 @@ extension Alamofire.DataRequest {
 #endif
 }
 
-extension Alamofire.DownloadRequest {
+extension DownloadRequest {
+    /*
     public func response(_: PMKNamespacer, queue: DispatchQueue? = nil) -> Promise<DefaultDownloadResponse> {
         return Promise { seal in
             response(queue: queue) { response in
@@ -148,7 +149,7 @@ extension Alamofire.DownloadRequest {
                 }
             }
         }
-    }
+    }*/
 
     /// Adds a handler to be called once the request has finished.
     public func responseData(queue: DispatchQueue? = nil) -> Promise<DownloadResponse<Data>> {
@@ -168,11 +169,11 @@ extension Alamofire.DownloadRequest {
 
 /// Alamofire.DataResponse, but without the `result`, since the Promise represents the `Result`
 public struct PMKAlamofireDataResponse {
-    public init<T>(_ rawrsp: Alamofire.DataResponse<T>) {
+    public init<T>(_ rawrsp: DataResponse<T>) {
         request = rawrsp.request
         response = rawrsp.response
         data = rawrsp.data
-        timeline = rawrsp.timeline
+        //timeline = rawrsp.timeline
     }
 
     /// The URL request sent to the server.
@@ -185,5 +186,5 @@ public struct PMKAlamofireDataResponse {
     public let data: Data?
 
     /// The timeline of the complete lifecycle of the request.
-    public let timeline: Timeline
+    //public let timeline: Timeline
 }
