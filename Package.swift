@@ -9,7 +9,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/mxcl/PromiseKit.git", from: "6.4.0"),
-        .package(url: "https://github.com/maksimorlovich/Alamofire.git", .branch("alamofire5-linux")),
+        .package(url: "https://github.com/maksimorlovich/Alamofire.git", .branch("alamofire-linux")),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
